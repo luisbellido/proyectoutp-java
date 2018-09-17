@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+<meta http-equiv='x-ua-compatible' content='ie=edge'>
+
+<title>Sistema | Acceso </title>
+ 
+<link href='http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css' rel='stylesheet'>
+<link rel='stylesheet' th:href="@{/css/SiteUTP.css}">
+ 
+<script src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
+<script src='http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/language/es_ES.min.js'></script>
+
+<script type="text/javascript" th:src="@{/js/ScriptGeneral.js}"></script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		
+		if ($("#valorMel").val()) {
+			
+			$("#LoginUTP").load('/showFormLogin', function () {
+				 $("#username").focus();
+				 LoadBootstrapValidatorScript(FormValidator);
+			});
+		}
+	});
+</script>
+
+<style type="text/css">
+.cont {	background: url(img/fondo.png) repeat scroll 0 0;}
+</style>
+
+</head>
+
+<body style="border: 1px groove;">
+
+    <input data-val="true" data-val-required="The Boolean field is required." 
+    id="valorMel" name="valorMel" type="hidden" th:value="${isValue}" />
+    
+    <header class="hidden-xs">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                	<img th:src="@{/img/motoguzzi-init.png}" class="img-responsive" alt="Inicio">
+                </div>
+                <nav class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><span class="TituloHeader">Sistema para Evaluación</span></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="cont">
+        <div id="id_login" class="demo">
+	        <div class="login">
+	        	<div class="login__form">
+                <div id="LoginUTP"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <br /><br />
+
+    <footer class="footer  hidden-xs">
+        <div id="footer-inner" class="col-xs-12 form-inline">
+                <div class="col-md-6">
+                    <div class="form-group-lg">
+                        <p class="idp" style="margin-top: 10px;">
+                            <a style="margin-left: 0px!important; font-family: helvetica;">
+                            SAE
+                            </a>
+                        </p>
+                        <p class="idp">
+                    		AA
+                        </p>
+                    </div>
+                </div>
+            <div class="col-md-6" style="padding-left: 0px;">
+                <div class=" form-group-lg" style="border-left: 1px groove;">
+                    <p class="idp" style=" margin-top: 10px;">
+                        <a style="margin-left: 0px!important;  font-family: helvetica;">
+                        	MDA
+                        </a>
+                    </p>
+                    <p class="idp">
+                        BB
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script type="text/javascript" th:src="@{/js/index.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{fragments/layout}">
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Area</title>
+    <script th:src="@{/js/view/areaindex.js}"></script>
+</head>
+<body>
+
+<div data-layout-fragment="content">
+
+	<div class="contenido">
+	
+		<table id="dgAreas" th:style="'width:'+#{system.tablefullwidth}+'; height:'+#{system.tablefullheight}+';'">
+			<thead>
+				<tr>
+					<th field="id" width="10">Id</th>
+					<th field="namearea" width="100">Nombre</th>
+				</tr>
+			</thead>
+		</table>
+
+		<div id="toolbar">
+			<a id="btnNew" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true"  >Nuevo</a>
+			<a id="btnEdi" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" >Editar</a>
+			<a id="btnDet" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" >Detalle</a>
+			<a id="btnDel" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true">Eliminar</a>
+		</div>
+		
+	</div>
+	
+</div>
+
+</body>
+</html>

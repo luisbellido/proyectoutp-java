@@ -1,0 +1,34 @@
+body {
+	font-family: verdana, helvetica, arial, sans-serif;
+	padding: 10px;
+	font-size: 12px;
+	margin: 0;
+}
+
+.box {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.contenido {
+	padding: 10px;
+}
+
+.system-init-href {
+	color: rgb(119, 119, 119);
+	text-decoration: none;
+	display: inline-block;
+}
+
+.tree-title {
+	font-size: 14px;
+}
+
+.tree-title a {
+	text-decoration: none;
+	color: rgb(119, 119, 119);
+}
+

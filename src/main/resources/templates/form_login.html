@@ -1,0 +1,61 @@
+<form th:action="@{/login}" th:object=${user}  method="POST" id="loginFormulario">
+
+	<div id="loginForm" style="display: table-row-group; vertical-align: middle; border-color: inherit;">
+
+		<table id="tableloginPartial" class="tablecell"
+			style="text-align: center; width: 300px;">
+			<tbody>
+				<hr/>
+				<tr>
+					<td height="1" style="text-align: left;"></td>
+				</tr>
+				<tr>
+					<td id="divLogin" class="tdLoginTitulo" height="20"
+						style="text-align: center;">
+						<h2 id="TextoLogin" class="hidden-xs">Ingresa a tu cuenta</h2>
+						<h2 class="visible-xs">Sistema para Evaluaci&oacute;n</h2>
+					</td>
+				</tr>
+				<tr class="hidden-xs">
+					<td id="idLinea" height="40" valign="top"></td>
+				</tr>
+				<tr>
+					<td height="5">
+						<div id="Error"></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="tdLogin" style="text-align: center;">
+					<input class="TxtUsuario" placeholder="C&oacute;digo" type="text" autofocus th:field="*{username}"/>
+					<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">User</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="tdLogin" style="text-align: center;">
+						<input class="TxtUsuario" placeholder="Contrase&ntilde;a" type="password" th:field="*{passname}" /> 
+						<p th:if="${#fields.hasErrors('passname')}" th:errors="*{passname}">Pass</p>
+					</td>
+				</tr>
+				
+				<tr id="CamContraseña" class="hidden-xs">
+					<td height="1" class="tdlink">
+						<div id="LinkCambioContraseña"></div>
+					</td>
+				</tr>
+								
+				<tr>
+					<td align="center" class="Tdbutton">
+						<input id="loginUser"style="width: 250px;" value=" Ingresar " class="button" type="submit"/> 
+						<input id='LimpiarUser' type='button' style'width:250px;' value= 'Limpiar ' class='buttonLimpiar'  />
+						<br />
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
+	
+</form>
+
+
+

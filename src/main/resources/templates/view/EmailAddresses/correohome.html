@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{fragments/layout}">
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Correos</title>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		
+		$('#dgCorreo').datagrid({
+			title: 'Control de Correos',
+  	        toolbar: '#toolbar_table',
+  	        rownumbers: true,fitColumns: true, singleSelect: true,pagination: true,
+  	        method: 'post', url: 'correos/getEmailAddresses',
+  	        loader: function(param, success, error){
+  	        	   var opts = $(this).datagrid('options');
+  	        	   if (!opts.url) return false;
+  		           $.ajax({
+  		        	   type: opts.method,url: opts.url,data: param,dataType: 'json',
+  		        	   success: function(data){
+  		        		   if (data.isError){
+  		       					$.messager.alert("Mensaje del Sistema",data.message, 'error');
+  		       				} else {
+  		       					success(data);
+  		       			   }
+  		        	   }
+  		           });
+  	        },
+  	        onDblClickRow: function (index,row) {
+  	        	//$( "#btnEdi" ).click();
+  	   	    }
+  		});
+		
+		$("#btnNew").click(function() {
+			  var formDlg=new FormsProperty('#dlgCorreo','correos/correoForm',"Agregar Nuevo Correo",500,300);
+			  loadFormClass(formDlg,function() {
+				   $('#emaildata').validatebox({
+				        required: true
+				   })
+				   $('#frmCorreo').form('clear');
+				   $('#btnSav').linkbutton('enable');
+				   $('#emaildata').focus();
+			  });
+		});
+
+		
+    });
+	
+
+</script>
+
+</head>
+
+<body>
+
+<div data-layout-fragment="content">
+	<div class="contenido">
+		
+		<table id="dgCorreo" th:style="'width:'+#{system.tablefullwidth}+'; height:'+#{system.tablefullheight}+';'">
+			<thead>
+				<tr>
+					<th field="id" width="10">Id</th>
+					<th field="emaildata" width="100">Correo</th>
+					<th field="statusemail" width="10" formatter="formatGridIcon" align="center" >Estado</th>
+				</tr>
+			</thead>
+		</table>
+
+		<div id="toolbar_table">
+			<a id="btnNew" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true"  >Nuevo</a>
+			<a id="btnEdi" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" >Editar</a>
+			<a id="btnDet" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" >Detalle</a>
+		</div>
+		
+		<div id="dlgCorreo" class="easyui-dialog"
+			data-options="modal:true" closed="true" buttons="#dlg-buttons">
+		</div>
+		
+		<div id="dlg-buttons">
+			<a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" id="btnSav" style="width:90px">Guardar</a>
+			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlgCorreo').dialog('close')" style="width:90px">Cancelar</a>
+		</div>
+
+	</div>
+</div>
+
+</body>
+</html>
