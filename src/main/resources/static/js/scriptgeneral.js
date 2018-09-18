@@ -25,28 +25,6 @@ function loadFormClass(formDlg,onloadCallback){
 	}).dialog('open').dialog('setTitle', formDlg.title).dialog('fluid');//.window('center');
 }
 
-/*function loadForm(idContent,url,title,onloadCallback){
-	$(idContent).dialog({
-			closed:true,
-			href:url,
-			inline:true,
-			onLoad:onloadCallback(),
-			maxWidth:400,
-			maxHeight:400
-	}).dialog('open').dialog('setTitle', title).dialog('fluid');//.window('center');
-}*/
-//loadForm('#dlgCorreo','correos/correoForm',"Agregar Nuevo Correo",function() {
-/*$('#namearea').validatebox({
-     required: true,
-});
-$('#frmArea').form('clear');*/
-//  $('#btnSav').linkbutton('enable');
-//$('#namearea').focus();
-//});
-
-
-
-
 $.extend($.fn.window.methods,{
 	fluid: function(jq){
 		if (!$._fluid){
@@ -59,6 +37,7 @@ $.extend($.fn.window.methods,{
 			var ww = $(window).width();
 			var hh = $(window).height();
 			var opts = $(this).window('options');
+			
 			if (ww < opts.maxWidth + 50){
 				$(this).window('resize',{
 					width: ww - 50,
@@ -67,9 +46,10 @@ $.extend($.fn.window.methods,{
 			} else {
 				$(this).window('resize',{
 					width:opts.maxWidth,
-					height: hh-50
+					height: opts.maxHeight
 				})
 			}
+			
 			$(this).window('center');
 		})
 	}
