@@ -2,7 +2,7 @@ $(document).ready(function () {
 		
 	$('#dgCorreo').datagrid({
 			title: 'Control de Correos',
-  	        toolbar: '#toolbar_table',
+  	        toolbar: '#toolbar_table_correo',
   	        rownumbers: true,fitColumns: true, singleSelect: true,pagination: true,
   	        method: 'post', url: 'correos/getEmailAddresses',
   	        loader: function(param, success, error){
@@ -12,7 +12,7 @@ $(document).ready(function () {
   		        	   type: opts.method,url: opts.url,data: param,dataType: 'json',
   		        	   success: function(data){
   		        		   if (data.isError){
-  		       					$.messager.alert("Mensaje del Sistema",data.message, 'error');
+  		       					$.messager.alert(TITLE_MSG_OK,data.message, 'error');
   		       				} else {
   		       					success(data);
   		       			   }
@@ -32,7 +32,7 @@ $(document).ready(function () {
 					 $('#btnSav').prop('disabled', false);
 					 $('#emaildata').textbox('textbox').focus();
 				 }
-			}).dialog('open').dialog('setTitle', "Agregar Nuevo Correo").dialog('fluid');
+			}).dialog('open').dialog('setTitle', "Agregar Nuevo Correo").dialog('fluid').window('center');
 		});
 		
 		$("#btnEdi").click(function() {
@@ -45,7 +45,7 @@ $(document).ready(function () {
 							 $('#btnSav').prop('disabled', false);
 							 $('#emaildata').textbox('textbox').focus();
 						 }
-				   }).dialog('open').dialog('setTitle', "Editar Correo").dialog('fluid');
+				   }).dialog('open').dialog('setTitle', "Editar Correo").dialog('fluid').window('center');
 				   
 			   }else{
 				   $.messager.alert(TITLE_MSG_OK, "Seleccione una fila", 'warning');
@@ -102,7 +102,7 @@ $(document).ready(function () {
 				   $('#dlgCorreoVer').dialog({
 						closed:true,
 						href:'correos/correosDetails/'+row.id,
-				   }).dialog('open').dialog('setTitle', "Detalle Correo").dialog('fluid');
+				   }).dialog('open').dialog('setTitle', "Detalle Correo").dialog('fluid').window('center');
 			   }else{
 				   $.messager.alert(TITLE_MSG_OK, "Seleccione una fila", 'warning');
 			   }

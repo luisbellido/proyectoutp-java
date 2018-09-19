@@ -20,9 +20,8 @@ import utp.alumno.app.model.Area;
 @Mapper
 public interface AreaMapper {
 
-	@Select("SELECT a.id, a.name_area FROM areas a limit #{offset}, #{rows} ")
+	@Select("SELECT a.id, a.name_area,a.status FROM areas a limit #{offset}, #{rows} ")
     @Results({
-        @Result(property = "id", column = "id"),
         @Result(property = "namearea", column = "name_area")
     })
 	public List<Area> findAllAreas(@Param("offset")int offset,@Param("rows")int rows);

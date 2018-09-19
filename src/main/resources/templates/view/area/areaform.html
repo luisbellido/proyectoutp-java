@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-Formulario
-</body>
-</html>
+
+<div class="easyui-panel"  style="width:100%; padding:10px 10px;">
+
+	<form id="frmArea" th:action="@{/areas/addArea}" th:object=${area} method="POST">
+
+		<input type="hidden" th:if="*{id}" th:field="*{id}" />
+		
+		 <div style="margin-bottom:20px">
+		 	<input label="Nombre: " th:field="*{namearea}" style="width:100%; padding-left: 10px;">
+         </div>
+         
+         <div style="margin-bottom:20px">
+			<input label="Activo : " th:field="*{status}" th:checked="*{status}"/>
+         </div>
+         
+	</form>
+	
+	<script type="text/javascript">
+
+		$('#status').checkbox({
+		    onChange: function(param){
+		    	$(this).checkbox('setValue', param);
+		    }
+		});
+		
+		$('#namearea').textbox({
+			prompt:'Ingrese el nombre...',
+			iconAlign:'left'
+		}).textbox('textbox').validatebox({
+			required: true,
+			validType:'length[2,100]'
+		});
+		
+	</script>
+
+</div>

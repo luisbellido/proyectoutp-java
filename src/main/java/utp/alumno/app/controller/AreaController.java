@@ -57,12 +57,6 @@ public class AreaController {
 		return mav;
 	}
 
-	@GetMapping("/areas/areaDetails/{idarea}")
-	public String getAreaDetails(Model model, @PathVariable("idarea") int id) {
-		model.addAttribute("area", areaService.getAreaById(id));
-		return view.AREA_FORM_DETAILS;
-	}
-
 	// Mostrar Lista en formato JSON
 	@PostMapping("/areas/findAllAreas")
 	public @ResponseBody String listAreaJson(ModelMap model, 
@@ -89,20 +83,19 @@ public class AreaController {
 		JSONObject json = new JSONObject();
 		try {
 			if (br.hasErrors()) {
-				json.put("errorValidation", "Error de Validación");
 				json.put("fieldValue", br.getFieldError().getRejectedValue());
 				StringBuilder errorMsg = new StringBuilder(br.getFieldError().getDefaultMessage());
 				errorMsg.setCharAt(0, (errorMsg.substring(0, 1).toUpperCase()).charAt(0));
-				json.put("fieldMsg", errorMsg.toString());
-			} else if (areavalue.getId() != area.getId()) {
-				json.put("errorHidden", "Ha realizado un cambio manual, vuelva a cargar el formulario");
-			} else {
+				json.put("errorMsg", errorMsg.toString());
 				
+			} else if (areavalue.getId() != area.getId()) {
+				json.put("errorMsg", "Ha realizado un cambio manual, vuelva a cargar el formulario");
+			} else {
 				int rpta = area.getId() == 0 ? areaService.createArea(area) : areaService.updateArea(area);
 				if (rpta > 0) {
 					json.put("okMsg", "Registro Procesado Correctamente");
 				} else {
-					json.put("errorMsg", "Registro Procesado");
+					json.put("errorMsg", "No se ha procesado ningun dato");
 				}
 			}
 		} catch (Exception e) {
@@ -110,6 +103,12 @@ public class AreaController {
 			LOG.error(e.getMessage());
 		}
 		return json.toString();
+	}
+	
+	@GetMapping("/areas/areaDetails/{idarea}")
+	public String getAreaDetails(Model model, @PathVariable("idarea") int id) {
+		model.addAttribute("area", areaService.getAreaById(id));
+		return view.AREA_FORM_DETAILS;
 	}
 	
 }

@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-Detalle
-</body>
-</html>
+<div class="easyui-panel"  style="width:100%; padding:10px 10px;">
+
+	<div style="margin-bottom:20px">
+		<b>Nombre: </b>
+		<span th:text="${area.namearea}" label="Correo: "></span>
+    </div>
+    
+    <div style="margin-bottom:20px">
+		<input label="Activo : " class="easyui-checkbox" disabled th:field="${area.status}" th:checked="${area.status}"/>
+    </div>
+    
+</div>

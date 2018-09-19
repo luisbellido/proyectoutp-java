@@ -97,7 +97,7 @@ public class EmailAddressesController {
 				if (rpta > 0) {
 					json.put("okMsg", "Registro Procesado Correctamente");
 				} else {
-					json.put("errorMsg", "No se ha registrado ningun dato");
+					json.put("errorMsg", "No se ha procesado ningun dato");
 				}
 			}
 		}catch(NumberFormatException e) {

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Area</title>
-    <script th:src="@{/js/view/areaindex.js}"></script>
+    
 </head>
 <body>
 
@@ -17,15 +17,36 @@
 				<tr>
 					<th field="id" width="10">Id</th>
 					<th field="namearea" width="100">Nombre</th>
+					<th field="status" width="10" formatter="formatGridIcon" align="center" >Estado</th>
 				</tr>
 			</thead>
 		</table>
 
-		<div id="toolbar">
+		<div id="toolbar_table_area">
 			<a id="btnNew" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true"  >Nuevo</a>
 			<a id="btnEdi" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" >Editar</a>
 			<a id="btnDet" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-formdetail" plain="true" >Detalle</a>
 		</div>
+		
+		<div id="dlgArea" class="easyui-dialog" buttons="#dlg-buttons" style="max-width: 400px; height: 200px; max-height: 200px;"
+			data-options="modal:true" closed="true">
+		</div>
+		
+		<div id="dlg-buttons">
+			  <button id="btnSav" type="button" class="btn btn-success">
+		          <span class="glyphicon glyphicon-floppy-disk"></span> Guardar
+		      </button>
+			  <button type="button" class="btn btn-default" onclick="javascript:$('#dlgArea').dialog('close')">
+		          <span class="glyphicon glyphicon-remove"></span> Cancelar
+		      </button>
+		</div>
+		
+		<div id="dlgAreaVer" class="easyui-dialog" style="max-width: 400px; max-height: auto;"
+			data-options="modal:true" closed="true" >
+		</div>
+		
+		<script th:src="@{/js/view/areaindex.js}"></script>
+		
 		
 	</div>
 	
