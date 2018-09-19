@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  
+  <style>
+body{
+background: url(img/fondo.png) repeat scroll 0 0;
+}
+	</style>
+
+</head>
+<body>
+
+<div class="container">
+  
+  <p>
+  <div class="card bg-light text-dark" style="width:500px; 20rem;">
+  
+  	<div class="card-header">
+		Mi Carta de Presentación
+	</div>
+	
+	<img class="card-img-top" th:src="@{/img/SAM_0649.JPG}" alt="Card image">
+	<div class="card-body">
+	
+	    <h4 class="card-title" th:text="${usr.username}">Mi app</h4>
+	    <b>
+	    <p class="card-text">Aqui casual cuando me adaptaba a la Familia
+	    	<img th:src="@{/img/Carita-Feliz.png}" width="40" height="40" >
+	    </p>
+	    </b>
+	</div>
+	
+	<div class="card-footer">
+		Atte. <span th:text="${usr.passname}"></span>
+	</div>
+	
+  </div>
+	
+	
+</div>
+</p>
+
+</body>
+</html>
