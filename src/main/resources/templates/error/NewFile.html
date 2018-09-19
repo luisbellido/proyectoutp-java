@@ -1,0 +1,18 @@
+
+
+
+<div id="main-layout" class="easyui-layout" style="width: 100%; height: 550px">
+	<div region="west" title="Theme Builder" split="true"
+		style="width: 300px" href="_setting.php"></div>
+	<div region="center" title="Preview" href="_preview.php"
+		style="padding: 5px"></div>
+</div>
+
+<script type="text/javascript">
+	$(function() {
+		if ($(window).width() < 767) {
+			$('#main-layout').layout('collapse', 'west');
+		}
+	})
+</script>
+

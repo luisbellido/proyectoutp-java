@@ -1,23 +1,37 @@
-<div class="container" style="padding: 5px; 5px; 5px; 5px; width:95%;">
 
-  <form id="frmCorreo" th:action="@{/correos/addCorreo}" th:object=${email} method="POST" novalidate class="form-horizontal">
+<div class="easyui-panel"  style="width:100%; padding:10px 10px;">
+
+	<form id="frmCorreo" th:action="@{/correos/addCorreo}" th:object=${email} method="POST">
+
+		<input type="hidden" th:if="*{id}" th:field="*{id}" />
+		
+		 <div style="margin-bottom:20px">
+		 	<input label="Correo: " th:field="*{emaildata}" style="width:100%;">
+         </div>
+         
+         <div style="margin-bottom:20px">
+			<input label="Activo : " th:field="*{statusemail}" th:checked="*{statusemail}"/>
+         </div>
+         
+	</form>
 	
-	<div class="form-group">
-	  <label class="control-label col-sm-2" for="Correo">Correo:</label>
-      <div class="col-sm-8">
-        <input type="email" class="form-control" th:field="*{emaildata}" placeholder="Ingrese correo..." >
-      </div>
-    </div>
-    
-    <div class="form-group">
-      <!-- Default checked -->
-		<div class="custom-control custom-checkbox">
-		  <input type="checkbox" class="custom-control-input" id="defaultChecked2" checked>
-		  <label class="custom-control-label" for="defaultChecked2">Default checked</label>
-		</div>
-    </div>
-    
+	<script type="text/javascript">
 
-   </form>
+		$('#statusemail').checkbox({
+		    onChange: function(param){
+		    	$(this).checkbox('setValue', param);
+		    }
+		});
+		
+		$('#emaildata').textbox({
+			iconCls:'icon-email',
+			prompt:'Ingrese su correo...',
+			iconAlign:'left'
+		}).textbox('textbox').validatebox({
+			required: true,
+			validType:['email','length[2,100]']
+		});
+		
+	</script>
 
 </div>

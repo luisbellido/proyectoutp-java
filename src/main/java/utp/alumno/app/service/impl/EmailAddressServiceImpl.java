@@ -33,21 +33,14 @@ public class EmailAddressServiceImpl implements EmailAddressService{
 	}
 
 	@Override
-	public int updateEmail(EmailAddress emailAddress) {
-		// TODO Auto-generated method stub
-		return 0;
+	public final int createEmail(EmailAddress emailAddress) {
+		return emailAddressMapper.createEmail(emailAddress);
 	}
 
 	@Override
-	public int createEmail(EmailAddress emailAddress) {
-		// TODO Auto-generated method stub
-		return 0;
+	public final int updateEmail(EmailAddress emailAddress) {
+		return emailAddressMapper.updateEmail(emailAddress);
 	}
 
-	@Override
-	public int deleteEmailById(EmailAddress emailAddress) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 }

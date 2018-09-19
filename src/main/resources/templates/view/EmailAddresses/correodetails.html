@@ -1,0 +1,13 @@
+<div class="easyui-panel"  style="width:100%; padding:10px 10px;">
+
+	<div style="margin-bottom:20px">
+		<b>Correo: </b>
+		<span th:text="${email.emaildata}" label="Correo: "></span>
+    </div>
+    
+    <div style="margin-bottom:20px">
+		<input label="Activo : " class="easyui-checkbox" disabled
+		th:field="${email.statusemail}" th:checked="${email.statusemail}"/>
+    </div>
+    
+</div>

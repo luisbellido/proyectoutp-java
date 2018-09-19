@@ -11,6 +11,5 @@ public interface EmailAddressService {
 	public EmailAddress getEmailAddressById(int id);
 	public int updateEmail(EmailAddress emailAddress);
 	public int createEmail(EmailAddress emailAddress);
-	public int deleteEmailById(EmailAddress emailAddress);
-	
+
 }

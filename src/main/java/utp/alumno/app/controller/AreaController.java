@@ -106,7 +106,7 @@ public class AreaController {
 				}
 			}
 		} catch (Exception e) {
-			json.put("errorMsg","Ha ocurrido un Error\nComuníquese con el Administrador de Sistema");
+			json.put("errorMsg", utils.ERRORS_MSG);
 			LOG.error(e.getMessage());
 		}
 		return json.toString();

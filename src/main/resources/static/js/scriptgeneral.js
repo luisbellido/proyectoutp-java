@@ -9,10 +9,17 @@ class FormsProperty{
 }
 
 const iconsurl="lib/jquery-easyui-1.6.2/themes/icons/";
+const TITLE_MSG_ERROR="Error de Validaci&oacute;n";
+const TITLE_MSG_OK="Mensaje del Sistema";
 
 function formatGridIcon(val,row,index){
 	return "<img src='"+iconsurl+(val?"aceptar.png":"cancelar.png")+"'/>" //;
 }
+
+function println(msg){
+	console.log(msg);
+}
+
 
 function loadFormClass(formDlg,onloadCallback){
 	$(formDlg.idContent).dialog({
@@ -25,6 +32,7 @@ function loadFormClass(formDlg,onloadCallback){
 	}).dialog('open').dialog('setTitle', formDlg.title).dialog('fluid');//.window('center');
 }
 
+	
 $.extend($.fn.window.methods,{
 	fluid: function(jq){
 		if (!$._fluid){

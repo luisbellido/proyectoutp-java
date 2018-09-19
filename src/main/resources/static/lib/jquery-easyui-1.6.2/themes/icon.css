@@ -20,6 +20,14 @@
 	background:url('icons/basic.png') no-repeat center center;
 }
 
+.icon-email{
+	background:url('icons/email.png') no-repeat center center;
+}
+.icon-formdetail{
+	background:url('icons/application-form.png') no-repeat center center;
+}
+
+
 /*====================================************** ====================================*/
 
 .icon-blank{

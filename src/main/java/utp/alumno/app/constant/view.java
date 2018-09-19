@@ -22,5 +22,6 @@ public class view {
 	
 	public static final String CORREO_FORM="/view/EmailAddresses/correohome";
 	public static final String CORREO_FORM_VIEW="/view/EmailAddresses/correoform";
+	public static final String CORREO_FORM_DETAILS="/view/EmailAddresses/correodetails";
 	
 }
