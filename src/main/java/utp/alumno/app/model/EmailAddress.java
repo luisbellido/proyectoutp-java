@@ -19,7 +19,6 @@ import lombok.ToString;
 @ToString
 @Builder
 @Getter @Setter
-
 public class EmailAddress {
 	
 	@NotNull(message = "Debe ingrese un valor Numérico")
